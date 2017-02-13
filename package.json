@@ -1,0 +1,31 @@
+{
+  "name": "eslint-plugin-reselect",
+  "version": "1.0.0",
+  "description": "eslint rules to enforce best practices in selectors made with reselect",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --ext .js ./",
+    "lint:watch": "esw --ext .js --watch .",
+    "test": "mocha tests/**/*.js",
+    "test:watch": "mocha tests/**/*.js -w",
+    "test:coverage": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "reselect",
+    "redux"
+  ],
+  "author": "Paul Musso <paul@musso.io>",
+  "contributors": [
+    "Paul Musso <paul@musso.io>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "eslint-watch": "^2.1.14",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  }
+}
