@@ -32,6 +32,11 @@ Rules are triggered in a file when `reselect` is imported like this
 ```js
 import { ... } from 'reselect';
 ```
+
+If you don't use reselect in your selector file, you can just import reselect like this to enable rules
+```js 
+import 'reselect';
+```
 * reselect/signature: Maximum arity of 2, second argument must be a destructuring object. Rule triggered when :
  * function name begins by `get`
  * function at root level (exported or not)
