@@ -22,16 +22,3 @@ describe('all rule files should be exported by the plugin', function () {
     })
   })
 })
-
-describe('configurations', function () {
-  it('should export a \'all\' configuration', function () {
-    assert(plugin.configs.all)
-    Object.keys(plugin.configs.all.rules).forEach(function (configName) {
-      assert.equal(configName.indexOf('reselect/'), 0)
-      assert.equal(plugin.configs.all.rules[configName], 2)
-    })
-    ruleFiles.forEach(function (ruleName) {
-      assert(Boolean(plugin.configs.all.rules['reselect/' + ruleName]))
-    })
-  })
-})
