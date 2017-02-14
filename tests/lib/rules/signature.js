@@ -31,7 +31,7 @@ const getView = (state, { id }) => state;`,
       {
         code: 
 `import { createSelector } from 'reselect';
-const getfoo = function(state, id) { return true; }`,
+const getFoo = function(state, id) { return true; }`,
         errors: [{
           message: 'Second argument must be destructured',
           line: 2,
@@ -39,6 +39,21 @@ const getfoo = function(state, id) { return true; }`,
           type: 'Identifier'
         }],
         parserOptions: parserOptions
+      },
+      {
+        code: 
+`import { createSelector } from 'reselect';
+const getFoo = createSelector(
+  (state, id) => state,
+  state => state
+)`,
+        errors: [{
+          message: 'Second argument must be destructured',
+          line: 3,
+          column: 11,
+          type: 'Identifier'
+        }],
+        parserOptions: parserOptions        
       }
     ])
 })
