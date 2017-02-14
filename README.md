@@ -28,8 +28,14 @@ Add rule `reselect/signature` in rules section.
 
 # List of supported rules
 
-* reselect/signature: Maximum arity of 2, second argument must be a destructuring object
-
+Rules are triggered in a file when `reselect` is imported like this 
+```js
+import { ... } from 'reselect';
+```
+* reselect/signature: Maximum arity of 2, second argument must be a destructuring object. Rule triggered when :
+ * function name begins by `get`
+ * function at root level (exported or not)
+ 
 # License
 
 eslint-plugin-reselect is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).
