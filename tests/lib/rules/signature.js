@@ -20,12 +20,19 @@ var parserOptions = {
 var ruleTester = new RuleTester()
 ruleTester.run('signature', rule, {
   valid: []
-    .concat({
-      code: 
+    .concat([
+      {
+        code: 
 `import { createSelector } from 'reselect';
 const getView = (state, { id }) => state;`,
-      parserOptions: parserOptions
-    }),
+        parserOptions: parserOptions
+      },
+      {
+        code: 
+`const getTiew = (one, two, three) => one;`,
+        parserOptions: parserOptions
+      },      
+    ]),
   invalid: []
     .concat([
       {
@@ -43,16 +50,49 @@ const getFoo = function(state, id) { return true; }`,
       {
         code: 
 `import { createSelector } from 'reselect';
-const getFoo = createSelector(
-  (state, id) => state,
-  state => state
-)`,
+const getFoo = (state, id) => true`,
         errors: [{
           message: 'Second argument must be destructured',
-          line: 3,
-          column: 11,
+          line: 2,
+          column: 24,
           type: 'Identifier'
         }],
+        parserOptions: parserOptions
+      },
+      {
+        code: 
+`import { createSelector } from 'reselect';
+export const getFoo = (state, id) => true`,
+        errors: [{
+          message: 'Second argument must be destructured',
+          line: 2,
+          column: 31,
+          type: 'Identifier'
+        }],
+        parserOptions: parserOptions
+      },
+      {
+        code: 
+`import { createSelector } from 'reselect';
+const getFoo = createSelector(
+  (state, id) => state,
+  (state, id) => state,
+  s => s
+)`,
+        errors: [
+          {
+            message: 'Second argument must be destructured',
+            line: 3,
+            column: 11,
+            type: 'Identifier'
+          },
+          {
+            message: 'Second argument must be destructured',
+            line: 4,
+            column: 11,
+            type: 'Identifier'
+          }
+        ],
         parserOptions: parserOptions        
       }
     ])
