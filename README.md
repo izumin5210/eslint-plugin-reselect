@@ -1,7 +1,7 @@
 eslint-plugin-reselect
 ========================
 
-Enforce best practices to selectors with ESLint
+Enforce best practices in selectors written [Reselect](https://github.com/reactjs/reselect)
 
 # Installation
 
