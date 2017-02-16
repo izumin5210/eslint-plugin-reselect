@@ -74,6 +74,18 @@ export const getFoo = (state, id) => true`,
       {
         code: 
 `import { createSelector } from 'reselect';
+export function getFoo(state, id) { return true }`,
+        errors: [{
+          message: 'Second argument must be destructured',
+          line: 2,
+          column: 31,
+          type: 'Identifier'
+        }],
+        parserOptions: parserOptions
+      },
+      {
+        code: 
+`import { createSelector } from 'reselect';
 const getFoo = createSelector(
   (state, id) => state,
   (state, id) => state,
