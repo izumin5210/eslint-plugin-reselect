@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha tests/**/*.js",
     "test:watch": "mocha tests/**/*.js -w",
-    "test:coverage": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot"
+    "test:coverage": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "keywords": [
     "eslint",
