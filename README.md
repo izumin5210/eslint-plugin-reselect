@@ -13,7 +13,7 @@ $ npm i eslint-plugin-reselect
 
 Add `plugins` section and specify eslint-plugin-reselect as a plugin.
 
-Add rule `reselect/signature` in rules section.
+Add rules `reselect/first-param-name`, `reselect/maximum-arity` and `reselect/second-param-destructured`  in rules section.
 
 ```json
 {
@@ -21,7 +21,9 @@ Add rule `reselect/signature` in rules section.
     "reselect"
   ],
   "rules": {
-    "reselect/signature": "error",
+    "reselect/first-param-name": "error",
+    "reselect/maximum-arity": "error",
+    "reselect/second-param-destructured": "error",
   }
 }
 ```
@@ -37,7 +39,11 @@ If you don't use reselect in your selector file, you can just import reselect li
 ```js 
 import 'reselect';
 ```
-* reselect/signature: Maximum arity of 2, second argument must be a destructuring object. Rule triggered when :
+* reselect/first-param-name: First param must be named `state`.
+* reselect/maximum-arity: Maximum arity of 2.
+* reselect/second-param-destructured: Second argument must be a destructuring object. 
+
+All rules are triggered when :
  * function name begins by `get`
  * function at root level (exported or not)
  

@@ -2,7 +2,7 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var rule = require('../../../lib/rules/signature')
+var rule = require('../../../lib/rules/second-param-destructured')
 var RuleTester = require('eslint').RuleTester
 
 var parserOptions = {
@@ -18,7 +18,7 @@ var parserOptions = {
 // ------------------------------------------------------------------------------
 
 var ruleTester = new RuleTester()
-ruleTester.run('signature', rule, {
+ruleTester.run('second-param-destructured', rule, {
   valid: []
     .concat([
       {
