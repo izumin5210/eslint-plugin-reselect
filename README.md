@@ -1,4 +1,4 @@
-eslint-plugin-reselect
+eslint-plugin-reselect [![Build Status](https://travis-ci.org/popul/eslint-plugin-reselect.svg?branch=master)](https://travis-ci.org/popul/eslint-plugin-reselect) [![Dependency Status](https://david-dm.org/popul/eslint-plugin-reselect.svg)](https://david-dm.org/popul/eslint-plugin-reselect) [![devDependency Status](https://david-dm.org/popul/eslint-plugin-reselect/dev-status.svg)](https://david-dm.org/popul/eslint-plugin-reselect#info=devDependencies)
 ========================
 
 Enforce best practices in selectors written with [Reselect](https://github.com/reactjs/reselect)
