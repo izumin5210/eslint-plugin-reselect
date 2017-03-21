@@ -6,7 +6,7 @@ cache:
 notifications:
   on_failure: change
 node_js:
-  - "node"
+  - "5"
 before_script:
   - npm prune
 after_success:
