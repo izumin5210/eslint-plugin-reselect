@@ -2,50 +2,57 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var rule = require('../../../lib/rules/first-param-name')
-var RuleTester = require('eslint').RuleTester
+const rule = require('../../../lib/rules/first-param-name');
+const RuleTester = require('eslint').RuleTester;
 
-var parserOptions = {
+const parserOptions = {
   ecmaVersion: 6,
-  sourceType: "module",
+  sourceType: 'module',
   ecmaFeatures: {
-    experimentalObjectRestSpread: true
-  }
-}
+    experimentalObjectRestSpread: true,
+  },
+};
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester();
 ruleTester.run('first-param-name', rule, {
   valid: []
     .concat([
       {
-        code: 
+        code:
 `import { createSelector } from 'reselect';
 const getView = (state, { id }) => state;`,
-        parserOptions: parserOptions
+        parserOptions,
       },
       {
-        code: 
-`const getTiew = (one, two, three) => one;`,
-        parserOptions: parserOptions
-      },      
+        code:
+`import { createSelector } from 'reselect';
+const getView = (st, { id }) => state;`,
+        parserOptions,
+        options: ['st'],
+      },
+      {
+        code:
+'const getTiew = (one, two, three) => one;',
+        parserOptions,
+      },
     ]),
   invalid: []
     .concat([
       {
-        code: 
+        code:
 `import { createSelector } from 'reselect';
 const getFoo = function(hey, id) { return true; }`,
         errors: [{
           message: 'First parameter must be named \'state\'',
           line: 2,
           column: 16,
-          type: 'FunctionExpression'
+          type: 'FunctionExpression',
         }],
-        parserOptions: parserOptions
+        parserOptions,
       },
-    ])
-})
+    ]),
+});

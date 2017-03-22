@@ -2,50 +2,57 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var rule = require('../../../lib/rules/maximum-arity')
-var RuleTester = require('eslint').RuleTester
+const RuleTester = require('eslint').RuleTester;
+const rule = require('../../../lib/rules/maximum-arity');
 
-var parserOptions = {
+const parserOptions = {
   ecmaVersion: 6,
-  sourceType: "module",
+  sourceType: 'module',
   ecmaFeatures: {
-    experimentalObjectRestSpread: true
-  }
-}
+    experimentalObjectRestSpread: true,
+  },
+};
 
 // ------------------------------------------------------------------------------
 // Tests
 // ------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester()
+const ruleTester = new RuleTester();
 ruleTester.run('maximum-arity', rule, {
   valid: []
     .concat([
       {
-        code: 
+        code:
 `import { createSelector } from 'reselect';
 const getView = (state) => state;`,
-        parserOptions: parserOptions
-      },    
+        parserOptions,
+      },
       {
-        code: 
-`const getTiew = (one, two, three) => one;`,
-        parserOptions: parserOptions
-      },      
+        code:
+'const getTiew = (one, two, three) => one;',
+        parserOptions,
+      },
+      {
+        code:
+`import { createSelector } from 'reselect';
+const getView = (state, one, two) => state;`,
+        parserOptions,
+        options: [3],
+      },
     ]),
   invalid: []
     .concat([
       {
-        code: 
+        code:
 `import { createSelector } from 'reselect';
 const getFoo = function(state, id, foo) { return true; }`,
         errors: [{
           message: 'Maximum arity in selector must be 2',
           line: 2,
           column: 16,
-          type: 'FunctionExpression'
+          type: 'FunctionExpression',
         }],
-        parserOptions: parserOptions
+        parserOptions,
       },
-    ])
-})
+    ]),
+});

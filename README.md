@@ -30,23 +30,33 @@ Add rules below in rules section.
 
 # List of supported rules
 
-Rules are triggered in a file when `reselect` is imported like this 
+* reselect/first-param-name: First param must be named `state`. Name can be configured. Here is an example with `fullState`: 
 ```js
-import { ... } from 'reselect';
+"rules": {
+	...
+    "reselect/first-param-name": ["error", "fullState"],
+    ...
 ```
-
-If you don't use reselect in your selector file, you can just import reselect like this to enable rules
-```js 
-import 'reselect';
+* reselect/maximum-arity: Maximum arity of 2. Arity can be modified like this :
+```js
+"rules": {
+	...
+    "reselect/maximum-arity": ["error", 3],
+    ...
 ```
-* reselect/first-param-name: First param must be named `state`.
-* reselect/maximum-arity: Maximum arity of 2.
 * reselect/second-param-destructured: Second argument must be a destructuring object. 
 
-All rules are triggered when :
+All rules are triggered in a file when :
+ * `reselect` is imported
  * function name begins by `get`
  * function at root level (exported or not)
 
+
+If you don't use [Reselect](https://github.com/reactjs/reselect) in your selector file, you can just import [Reselect](https://github.com/reactjs/reselect) like this to enable rules
+
+```js 
+import 'reselect';
+```
 
 # License
 
