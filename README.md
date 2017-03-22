@@ -46,8 +46,7 @@ import 'reselect';
 All rules are triggered when :
  * function name begins by `get`
  * function at root level (exported or not)
- 
- 
+
 # License
 
 eslint-plugin-reselect is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).

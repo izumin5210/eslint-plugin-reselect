@@ -2,7 +2,7 @@
 // Requirements
 // ------------------------------------------------------------------------------
 
-var rule = require('../../../lib/rules/maximum-arity')
+var rule = require('../../../lib/rules/no-get-state')
 var RuleTester = require('eslint').RuleTester
 
 var parserOptions = {
@@ -18,34 +18,51 @@ var parserOptions = {
 // ------------------------------------------------------------------------------
 
 var ruleTester = new RuleTester()
-ruleTester.run('maximum-arity', rule, {
+ruleTester.run('no-get-state', rule, {
   valid: []
     .concat([
+
+      {
+        code: 
+`const foo = (foo) => foo`,
+        parserOptions: parserOptions
+      },
       {
         code: 
 `import { createSelector } from 'reselect';
-const getView = (state) => state;`,
-        parserOptions: parserOptions
-      },    
-      {
-        code: 
-`const getTiew = (one, two, three) => one;`,
+const getView = (state, { id }) => state;`,
         parserOptions: parserOptions
       },      
+      {
+        code: 
+`import { createSelector } from 'reselect';
+const getView = (state, foo) => state;`,
+        parserOptions: parserOptions
+      },        
     ]),
   invalid: []
     .concat([
       {
         code: 
-`import { createSelector } from 'reselect';
-const getFoo = function(state, id, foo) { return true; }`,
+`state`,
         errors: [{
-          message: 'Maximum arity in selector must be 2',
-          line: 2,
-          column: 16,
-          type: 'FunctionExpression'
+          message: 'Can\'t access directly to state outside of selector',
+          line: 1,
+          column: 1,
+          type: 'Identifier'
         }],
         parserOptions: parserOptions
       },
+      {
+        code: 
+`getState()`,
+        errors: [{
+          message: 'Can\'t access directly to state outside of selector',
+          line: 1,
+          column: 1,
+          type: 'CallExpression'
+        }],
+        parserOptions: parserOptions
+      }
     ])
 })
