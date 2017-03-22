@@ -14,6 +14,8 @@ after_success:
 branches:
   except:
   - /^v\d+\.\d+\.\d+$/
+before_deploy:
+  - npm run semantic-release:pre
 deploy:
   provider: npm
   email: paul@musso.io
@@ -23,3 +25,5 @@ deploy:
   on:
     repo: popul/eslint-plugin-reselect
     branch: master
+after_deploy:
+  - npm run semantic-release:post
