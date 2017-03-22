@@ -1,6 +1,5 @@
 {
   "name": "eslint-plugin-reselect",
-  "version": "2.0.0",
   "description": "eslint rules to enforce best practices in selectors made with reselect",
   "main": "index.js",
   "scripts": {
