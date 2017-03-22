@@ -24,7 +24,6 @@ Add rules below in rules section.
     "reselect/first-param-name": "error",
     "reselect/maximum-arity": "error",
     "reselect/second-param-destructured": "error",
-    "reselect/no-get-state": "error",
   }
 }
 ```
@@ -43,7 +42,6 @@ import 'reselect';
 * reselect/first-param-name: First param must be named `state`.
 * reselect/maximum-arity: Maximum arity of 2.
 * reselect/second-param-destructured: Second argument must be a destructuring object. 
-* reselect/no-get-state: Prevent use of state and getState outside of selectors. 
 
 All rules are triggered when :
  * function name begins by `get`
