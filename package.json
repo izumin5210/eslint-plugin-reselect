@@ -3,6 +3,7 @@
   "description": "eslint rules to enforce best practices in selectors made with reselect",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint ./lib",
     "test": "mocha tests/**/*.js",
     "test:watch": "mocha tests/**/*.js -w",
     "test:coverage": "istanbul cover --dir reports/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --reporter dot",
@@ -26,7 +27,9 @@
   "license": "MIT",
   "devDependencies": {
     "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^3.15.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
     "ghooks": "^2.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
@@ -42,8 +45,8 @@
     },
     "ghooks": {
       "commit-msg": "validate-commit-msg",
-      "pre-commit": "npm run test",
-      "pre-push": "npm run test"
+      "pre-commit": "npm run lint && npm run test",
+      "pre-push": "npm run lint && npm run test"
     }
   }
 }
