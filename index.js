@@ -16,5 +16,11 @@ module.exports = {
         'reselect/second-param-destructured': 2,
       },
     },
+    recommended: {
+      rules: {
+        'reselect/first-param-name': 2,
+        'reselect/maximum-arity': 2,
+      },
+    },
   },
 };

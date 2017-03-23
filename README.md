@@ -58,7 +58,7 @@ If you don't use [Reselect](https://github.com/reactjs/reselect) in your selecto
 import 'reselect';
 ```
 
-## all
+## All
 
 This plugin also exports an `all` configuration that includes every available rule.
 
@@ -70,6 +70,25 @@ This plugin also exports an `all` configuration that includes every available ru
   "extends": ["plugin:reselect/all"]
 }
 ```
+
+## Recommended
+
+This plugin exports a `recommended` configuration that enforce React good practices.
+
+To enable this configuration use the `extends` property in your `.eslintrc` config file:
+
+```js
+{
+  "extends": ["plugin:reselect/recommended"]
+}
+```
+
+See [ESLint documentation](http://eslint.org/docs/user-guide/configuring#extending-configuration-files) for more information about extending configuration files.
+
+The rules enabled in this configuration are:
+
+* reselect/first-param-name
+* reselect/maximum-arity
 
 # License
 
