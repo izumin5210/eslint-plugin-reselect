@@ -58,6 +58,19 @@ If you don't use [Reselect](https://github.com/reactjs/reselect) in your selecto
 import 'reselect';
 ```
 
+## all
+
+This plugin also exports an `all` configuration that includes every available rule.
+
+```js
+{
+  "plugins": [
+    "reselect"
+  ],
+  "extends": ["plugin:reselect/all"]
+}
+```
+
 # License
 
 eslint-plugin-reselect is licensed under the [MIT License](http://www.opensource.org/licenses/mit-license.php).

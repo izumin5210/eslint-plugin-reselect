@@ -12,6 +12,7 @@
   },
   "keywords": [
     "eslint",
+    "eslintplugin",
     "eslint-plugin",
     "reselect",
     "redux"

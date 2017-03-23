@@ -8,4 +8,13 @@ const allRules = {
 
 module.exports = {
   rules: allRules,
+  configs: {
+    all: {
+      rules: {
+        'reselect/first-param-name': 2,
+        'reselect/maximum-arity': 2,
+        'reselect/second-param-destructured': 2,
+      },
+    },
+  },
 };
