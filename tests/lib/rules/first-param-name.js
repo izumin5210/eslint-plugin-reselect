@@ -44,14 +44,79 @@ const getView = (st, { id }) => state;`,
     .concat([
       {
         code:
-`import { createSelector } from 'reselect';
+`import 'reselect';
 const getFoo = function(hey, id) { return true; }`,
         errors: [{
           message: 'First parameter must be named \'state\'',
           line: 2,
-          column: 16,
-          type: 'FunctionExpression',
+          column: 25,
+          type: 'Identifier',
         }],
+        parserOptions,
+      },
+      {
+        code:
+`import 'reselect';
+function getFoo(hey, id) { return true; }`,
+        errors: [{
+          message: 'First parameter must be named \'state\'',
+          line: 2,
+          column: 17,
+          type: 'Identifier',
+        }],
+        parserOptions,
+      },   
+      {
+        code:
+`import 'reselect';
+export default function(hey, id) { return true; }`,
+        errors: [{
+          message: 'First parameter must be named \'state\'',
+          line: 2,
+          column: 25,
+          type: 'Identifier',
+        }],
+        parserOptions,
+      },
+      {
+        code:
+`import 'reselect';
+export const getFoo = (hey, id) => { return true; }`,
+        errors: [{
+          message: 'First parameter must be named \'state\'',
+          line: 2,
+          column: 24,
+          type: 'Identifier',
+        }],
+        parserOptions,
+      },
+      {
+        code:
+`import { createSelector } from 'reselect';
+export function getTest(hey, id) { return true; }`,
+        errors: [{
+          message: 'First parameter must be named \'state\'',
+          line: 2,
+          column: 25,
+          type: 'Identifier',
+        }],
+        parserOptions,
+      },
+      {
+        code:
+`import { createSelector } from 'reselect';
+const getFoo = createSelector(
+  (st, id) => state,
+  s => s
+)`,
+        errors: [
+          {
+            message: 'First parameter must be named \'state\'',
+            line: 3,
+            column: 4,
+            type: 'Identifier',
+          },
+        ],
         parserOptions,
       },
     ]),
