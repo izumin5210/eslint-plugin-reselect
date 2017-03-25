@@ -24,6 +24,7 @@ Add rules below in rules section.
     "reselect/first-param-name": "error",
     "reselect/maximum-arity": "error",
     "reselect/second-param-destructured": "error",
+    "reselect/call": "error",
   }
 }
 ```
@@ -45,6 +46,10 @@ Add rules below in rules section.
     ...
 ```
 * reselect/second-param-destructured: Second argument must be a destructuring object. 
+* reselect/call: When calling a selector function, second argument must be an object declaration. Selector call is identified like this:
+  * Called function  begins with `get`
+  * Function called with 2 parameters
+  * First parameter must be `state`
 
 All rules are triggered in a file when :
  * `reselect` is imported
