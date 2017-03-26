@@ -25,6 +25,7 @@ Add rules below in rules section.
     "reselect/maximum-arity": "error",
     "reselect/second-param-destructured": "error",
     "reselect/call": "error",
+    "reselect/prefer-create-selector": "error",
   }
 }
 ```
@@ -50,12 +51,13 @@ Add rules below in rules section.
   * Called function  begins with `get`
   * Function called with 2 parameters
   * First parameter must be `state`
+* reselect/prefer-create-selector: Instead of use selector in selector, prefer use of createSelector function. 
 
-All rules are triggered in a file when :
+All rules except `reselect/call` are triggered when :
  * `reselect` is imported
- * function name begins by `get`
+ * function name begins with `get`
  * function at root level (exported or not)
-
+ * functions in createSelector calls (not the latest)
 
 If you don't use [Reselect](https://github.com/reactjs/reselect) in your selector file, you can just import [Reselect](https://github.com/reactjs/reselect) like this to enable rules
 
@@ -94,6 +96,7 @@ The rules enabled in this configuration are:
 
 * reselect/first-param-name
 * reselect/maximum-arity
+* reselect/prefer-create-selector
 
 # License
 
