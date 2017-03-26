@@ -65,18 +65,6 @@ function getFoo(hey, id) { return true; }`,
           type: 'Identifier',
         }],
         parserOptions,
-      },   
-      {
-        code:
-`import 'reselect';
-export default function(hey, id) { return true; }`,
-        errors: [{
-          message: 'First parameter must be named \'state\'',
-          line: 2,
-          column: 25,
-          type: 'Identifier',
-        }],
-        parserOptions,
       },
       {
         code:
