@@ -54,5 +54,17 @@ const getFoo = function(state, id, foo) { return true; }`,
         }],
         parserOptions,
       },
+      {
+        code:
+`import { createSelector } from 'reselect';
+export default (state, foo, bar) => state;`,
+        errors: [{
+          message: 'Maximum arity in selector must be 2',
+          line: 2,
+          column: 16,
+          type: 'ArrowFunctionExpression',
+        }],
+        parserOptions,
+      },
     ]),
 });
