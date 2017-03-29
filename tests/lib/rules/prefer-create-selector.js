@@ -35,6 +35,15 @@ function getFoo(state, { id }) {
 export const test = getFoo(state);`,
         parserOptions,
       },
+      {
+        code:
+`import 'reselect';
+const getFoo = (state) => ({
+  a: getA(state),
+  b: getB(state)
+})`,
+        parserOptions,
+      },
     ]),
   invalid: []
     .concat([
