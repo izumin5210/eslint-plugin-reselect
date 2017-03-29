@@ -6,7 +6,6 @@ const allRules = {
   'maximum-arity': require('./lib/rules/maximum-arity'),
   call: require('./lib/rules/call'),
   'prefer-create-selector': require('./lib/rules/prefer-create-selector'),
-  'prefer-create-structured-selector': require('./lib/rules/prefer-create-structured-selector'),
 };
 
 module.exports = {
@@ -19,7 +18,6 @@ module.exports = {
         'reselect/second-param-destructured': 2,
         'reselect/call': 2,
         'reselect/prefer-create-selector': 1,
-        'reselect/prefer-create-structured-selector': 0,
       },
     },
     recommended: {
@@ -27,7 +25,6 @@ module.exports = {
         'reselect/first-param-name': 2,
         'reselect/maximum-arity': 2,
         'reselect/prefer-create-selector': 1,
-        'reselect/prefer-create-structured-selector': 0,
       },
     },
   },

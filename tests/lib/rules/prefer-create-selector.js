@@ -32,6 +32,14 @@ function getFoo(state, { id }) {
       {
         code:
 `import 'reselect';
+const getFoo = (state, { id }) => {
+  return _.filter(Object.keys(getC(state, { id })), id => state.obj[id].isOk);
+}`,
+        parserOptions,
+      },
+      {
+        code:
+`import 'reselect';
 export const test = getFoo(state);`,
         parserOptions,
       },
