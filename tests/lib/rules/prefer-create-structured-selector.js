@@ -30,6 +30,34 @@ const structuredSelector = createStructuredSelector({
 })`,
         parserOptions,
       },
+      {
+        code:
+`import 'reselect';
+const structuredSelector = createSelector(
+  getFoo,
+  (foo) => {
+    if (true) {
+      return getBar(state);
+    }
+  }
+);
+`,
+        parserOptions,
+      },
+      {
+        code:
+`import 'reselect';
+const structuredSelector = createSelector(
+  getFoo,
+  (foo) => {
+    if (true) {
+      return getBar(state);
+    }
+  }
+);
+`,
+        parserOptions,
+      },      
     ]),
   invalid: []
     .concat([
